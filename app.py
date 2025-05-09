@@ -14,6 +14,16 @@ import calendar
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
 # Configuration
 CONFIG = {
     'email_sender': st.secrets["EMAIL_SENDER"],
