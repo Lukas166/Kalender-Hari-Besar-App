@@ -14,29 +14,10 @@ import calendar
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
-# Try to load from .env.production first, then fall back to .env
-if os.path.exists('.env.production'):
-    load_dotenv('.env.production')
-    logging.info("Loaded environment variables from .env.production")
-else:
-    load_dotenv()
-    logging.info("Loaded environment variables from .env")
-
-# Initialize logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("app.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-
 # Configuration
 CONFIG = {
-    'email_sender': os.getenv('EMAIL_SENDER', 'your_email@gmail.com'),
-    'email_password': os.getenv('EMAIL_PASSWORD', 'your_app_password'),
+    'email_sender': st.secrets["EMAIL_SENDER"],
+    'email_password': st.secrets["EMAIL_PASSWORD"],
     'smtp_server': 'smtp.gmail.com',
     'smtp_port': 587,
     'default_receivers': ['team@company.com'],
