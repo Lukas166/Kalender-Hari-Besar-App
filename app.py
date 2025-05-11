@@ -452,6 +452,8 @@ def get_time_status(date, today):
 # Streamlit UI
 def streamlit_ui():
     st.set_page_config(page_title="Holiday Reminder", layout="wide")
+    st.title("Kalender Hari Libur Nasional")
+    st.write("Sistem notifikasi otomatis untuk postingan media sosial")
 
     
     # Tab layout (added tab 3 for manual notifications)
@@ -693,7 +695,7 @@ def streamlit_ui():
 
 # Start scheduler
 def start_scheduler():
-    scheduler.add_job(daily_check, 'cron', hour=0, minute=51)  # Run daily at 8:00 AM
+    scheduler.add_job(daily_check, 'cron', hour=1, minute=01)  # Run daily at 8:00 AM
     scheduler.start()
     logger.info("Scheduler started")
 
