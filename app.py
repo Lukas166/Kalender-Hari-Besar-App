@@ -695,7 +695,7 @@ def streamlit_ui():
 
 # Start scheduler
 def start_scheduler():
-    scheduler.add_job(daily_check, 'cron', hour=1, minute=1)  # Run daily at 8:00 AM
+    scheduler.add_job(daily_check, 'cron', hour=8, minute=0)  # Run daily at 8:00 AM
     scheduler.start()
     logger.info("Scheduler started")
 
