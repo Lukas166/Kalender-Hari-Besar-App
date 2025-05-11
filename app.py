@@ -452,8 +452,7 @@ def get_time_status(date, today):
 # Streamlit UI
 def streamlit_ui():
     st.set_page_config(page_title="Holiday Reminder", layout="wide")
-    st.title("Kalender Hari Libur Nasional")
-    st.write("Sistem notifikasi otomatis untuk postingan media sosial")
+
     
     # Tab layout (added tab 3 for manual notifications)
     tab1, tab2, tab3 = st.tabs(["Kalender", "Pengaturan", "Notifikasi Manual"])
